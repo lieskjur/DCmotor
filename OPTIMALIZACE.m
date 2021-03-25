@@ -10,7 +10,7 @@ mer.I_a = table2array(readtable('Mereni/RozbehCH2.CSV','range',[19,4]));
 
 % Simulace
 SimOut = SimRun(meas,0,120,zeros(9,1));
-sim.V_w = [SimOut.om.Time,80/1000*SimOut.om.Data];
+sim.V_w = [SimOut.om.Time,80/1000*30/pi*SimOut.om.Data];
 sim.I_a = [SimOut.I_a.Time,SimOut.I_a.Data];
 
 % Vizualizace
