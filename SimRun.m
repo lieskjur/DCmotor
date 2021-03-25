@@ -1,4 +1,4 @@
-function [SimOut] = SimRun(meas,t_0,U_id,delta)
+function SimOut = SimRun(meas,t_0,U_id,delta)
 	%meas = load('MereneHodnoty.mat');
 
 	R_a = meas.R_a + delta(1);
@@ -14,4 +14,5 @@ function [SimOut] = SimRun(meas,t_0,U_id,delta)
 	options = simset('SrcWorkspace','current');
 	SimOut = sim('DCmotor',[],options);
 
+	save('SimWorkspace.mat')
 end

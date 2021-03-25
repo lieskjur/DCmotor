@@ -14,7 +14,7 @@ sim.V_w = [SimOut.om.Time,80/1000*SimOut.om.Data];
 sim.I_a = [SimOut.I_a.Time,SimOut.I_a.Data];
 
 % Vizualizace
-figure; hold on; c = 0;%>>
+figure; hold on; c = 0; %>>
 for i = ["mer","sim"]
 	for j = ["V_w","I_a"]
 		fld = eval(i+"."+j);
@@ -24,3 +24,6 @@ for i = ["mer","sim"]
 	end
 end
 legend(lgd) %<<
+
+% Vysledky
+SimWS = load('SimWorkspace.mat')
