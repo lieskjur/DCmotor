@@ -1,7 +1,8 @@
-function tau = fitFOSresponseFLR(t_0,time,I_meas,plotORnot)
-	if nargin < 3; plotORnot = false; end;
+function tau = fitFOSresponseFLR(t_0,t_f,time,I_meas,plotORnot)
+	if nargin < 4; plotORnot = false; end;
+	if isempty(t_f); t_f = max(time); end;
 	
-	in = find(time>=t_0);
+	in = find( (time>=t_0) & (time<=t_f) );
 	I_0 = I_meas(in(1));
 
 	%I = @(tau,t) I_0*(1-exp(-(t-t_0)/tau));

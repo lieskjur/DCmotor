@@ -1,7 +1,7 @@
 clc; clear all; close all;
 
 % Nacteni vyhodnoceni mereni
-meas = Mereni(false);
+meas = Mereni(true);
 
 % Namerena prechodova char.
 addpath('Mereni')

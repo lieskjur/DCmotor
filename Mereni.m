@@ -8,7 +8,7 @@ function meas = Mereni(plotORnot);
 	meas.R_a = U_a/I_a;
 
 	PK = table2array(readtable('Mereni/PrechodKotva.CSV','range',[19,4]));
-	tau_K = fitFOSresponse(0,[],PK(:,1),PK(:,2),plotORnot);
+	tau_K = fitFOSresponseFLR(0,[],PK(:,1),PK(:,2),plotORnot);
 	meas.L_a = tau_K*meas.R_a;
 
 	% Buzeni
@@ -17,7 +17,7 @@ function meas = Mereni(plotORnot);
 	meas.R_b = U_b/I_b;
 
 	PB = table2array(readtable('Mereni/PrechodBuzeni.CSV','range',[19,4]));
-	tau_B = fitFOSresponse(0,[],PB(:,1),PB(:,2),plotORnot);
+	tau_B = fitFOSresponseFLR(0,[],PB(:,1),PB(:,2),plotORnot);
 	meas.L_b = tau_B*meas.R_b;
 
 	% Konst. stroje
@@ -34,7 +34,7 @@ function meas = Mereni(plotORnot);
 	r = 1019;
 	G_rot = 2055; %g
 	G_klid = 2010; %g
-	meas.M_z = (G_rot-G_klid)*r*9.81*1e-3;
+	meas.M_z = (G_rot-G_klid)*r*9.81*1e-6;
 
 	% Moment setrvacnosi
 	DB = table2array(readtable('Mereni/DobehCH2.CSV','range',[19,4]));
